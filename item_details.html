@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Item Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <img id="itemImage" src="" alt="Selected Item">
+  <h2 id="itemName"></h2>
+  <p style="font-size: 18px;">✅ Item added to cart. Will be delivered soon!</p>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const img = urlParams.get('img');
+
+    document.getElementById("itemImage").src = decodeURIComponent(img);
+    document.getElementById("itemName").textContent = decodeURIComponent(name);
+  </script>
+</body>
+</html>
